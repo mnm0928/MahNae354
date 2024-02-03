@@ -1,12 +1,11 @@
 import joblib
 from sklearn.pipeline import Pipeline
-from sklearn.svm import SVC
+from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-from preprocessing.data_preprocessing import TextPreprocessor
+from project.preprocessing.data_preprocessing import TextPreprocessor
 
-
-class SVMModel:
+class NaiveBayesModel:
     def __init__(self, dataframe):
         self.model = None
         self.df = dataframe
@@ -26,7 +25,7 @@ class SVMModel:
     def train_model(self, x_train, y_train):
         self.model = Pipeline([
             ('vectorizer', CountVectorizer()),
-            ('classifier', SVC(kernel='linear', random_state=42))
+            ('classifier', MultinomialNB())
         ])
         self.model.fit(x_train, y_train)
 
@@ -46,7 +45,7 @@ class SVMModel:
         print("\nConfusion Matrix:")
         print(confusion_mat)
 
-    def save_model(self, filename='svm_model.joblib'):
+    def save_model(self, filename='naive_bayes_model.joblib'):  # Change the filename
         if self.model is None:
             raise ValueError("Model has not been trained. Please train the model first.")
 

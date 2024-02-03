@@ -1,4 +1,4 @@
-from ml_models.main_ML_models import df
+from project.ml_models.__main__ import df
 import langid
 
 """

@@ -3,7 +3,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-from preprocessing.data_preprocessing import TextPreprocessor
+from project.preprocessing.data_preprocessing import TextPreprocessor
 
 
 class LogisticRegressionModel:

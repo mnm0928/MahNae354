@@ -1,10 +1,8 @@
 import pandas as pd
-from ml_models.Logistic_Regression import LogisticRegressionModel
-from ml_models.Naive_Bayes import NaiveBayesModel
-from ml_models.SVM import SVMModel
-from preprocessing.text_cleaning import clean_text
-
-
+from project.ml_models.logistic_regression import LogisticRegressionModel
+from project.ml_models.naive_bayes import NaiveBayesModel
+from project.ml_models.svm import SVMModel
+from project.preprocessing.text_cleaning import clean_text
 """
 Overview:
 

@@ -5,7 +5,7 @@ from torch.utils.data import DataLoader
 from transformers import BertTokenizer, AdamW, get_linear_schedule_with_warmup
 import torch
 from Bert import preprocess, TextClassificationDataset, BERTClassifier, train, evaluate
-from preprocessing.text_cleaning import clean_text
+from project.preprocessing.text_cleaning import clean_text
 
 """
 Overview:
