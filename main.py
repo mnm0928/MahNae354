@@ -1,4 +1,8 @@
 import joblib
+from fastapi import FastAPI
+
+app = FastAPI()
+
 
 def load_and_predict(input_text):
     # Load Logistic Regression model
@@ -19,10 +23,18 @@ def load_and_predict(input_text):
         'SVM Prediction': svm_prediction
     }
 
-# Input_text
-input_text = ["industrie"]
-predictions = load_and_predict(input_text)
 
-# Display predictions
-for model, prediction in predictions.items():
-    print(f"{model}: {prediction}")
+@app.get("/")
+def read_root():
+    return "FASTAPI for DS_Coding_Challenge"
+
+
+@app.get("/check_label/")
+def get_prediction(text: str):
+    input_text = [text]
+    predictions = load_and_predict(input_text)
+    prediction_result = {}
+    for model, prediction in predictions.items():
+        prediction_result[model] = prediction[0]
+
+    return prediction_result
