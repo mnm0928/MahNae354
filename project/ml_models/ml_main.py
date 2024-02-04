@@ -20,9 +20,8 @@ Test Accuracy: 0.8623
 ###### Support Vector Machine (without cleaning of text) ######
 Test Accuracy: 0.8765
 """
-
 # read the file
-df = pd.read_csv(r"/sample_data.csv")
+df = pd.read_csv(r"../../sample_data.csv")
 
 # Apply text cleaning
 df['cleaned_text'] = df['text'].apply(clean_text)
